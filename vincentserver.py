@@ -60,9 +60,9 @@ while True:
       tx = tokens[1]
       if addr in clientdict:
         name = clientdict[addr]
-        newtx = name + ':' + tx + '\n'
+        newtx = name + ': ' + tx
         print(newtx)
-        ledger.append(newtx)
+        ledger.append(newtx + '\n')
         for addr_i in clientdict:
           s.sendto(newtx.encode(), addr_i)
       else:
