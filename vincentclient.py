@@ -42,7 +42,6 @@ with socket.socket(type=socket.SOCK_DGRAM) as s:
     time.sleep(1) # wait 1 sec before allowing another cmd
     print('   VinCents client, enter cmd: [name/tx/getledger/exit]')
     user_input = input(': ')
-    print(user_input)
     if user_input == 'exit':
       break
     if user_input == '':
