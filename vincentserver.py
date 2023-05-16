@@ -1,4 +1,4 @@
-# chatserver.py
+# vincentserver.py
 #
 # This server program maintains a public ledger and list of 
 # clients that are interacting with the server. Clients send 
@@ -12,16 +12,17 @@
 # VINCENTS PROTOCOL COMMANDS:
 #  name - used to "register" a user, server ties name to (IP,PORT)
 #  tx   - used to add a transaction/message to ledger
-#  GETLEDGER - used to request full ledger be sent
+#  getledger - used to request full ledger be sent
 # EXAMPLES
 #  packet_msg = "name|John"
-#  packet_msg = "tx|Hello world!"
+#  packet_msg = "tx|Bank bailout in US March 2023!"
 #  packet_msg = "tx|John sends 10 coin to Aesha."
-#
+#  packet_msg = "getledger"
 #
 import socket
+# create a UDP socket object to access the internet
 s = socket.socket(type=socket.SOCK_DGRAM)
-s.bind(('',15000))
+s.bind(('',15000)) # designate which port we are listening/sendin on
 
 clientdict = {} # userdict[addr] = str name
 ledger = ['\n------------------\nVinCents Ledger\n']
